@@ -30,13 +30,6 @@ public class BootstrapData implements CommandLineRunner {
 
     }
 
-    private void cargarArtista(){
-        Artista artista= new Artista();
-        artista.setId(UUID.randomUUID());
-        artista.setNombre("Artista 1");
-        
 
-
-    }
 }
 
