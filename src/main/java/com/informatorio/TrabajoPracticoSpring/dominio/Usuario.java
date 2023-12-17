@@ -17,7 +17,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Usuario {
+public class Usuario extends Auditoria {
 
     @Id
     @GeneratedValue(generator = "UUID")
