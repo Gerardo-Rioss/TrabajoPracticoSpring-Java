@@ -8,6 +8,8 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -16,7 +18,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Artista extends Auditoria{
+public class Artista{
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
@@ -24,6 +26,10 @@ public class Artista extends Auditoria{
     @Column(length = 36,columnDefinition = "varchar(36)",updatable = false,nullable = false)
     private UUID id;
 
-    @Column(name="nombre")
+    @Column(name="nombre", nullable = false)
     private String nombre;
+
+    @OneToMany(fetch = FetchType.EAGER,mappedBy = "artista", cascade = {CascadeType.REMOVE, CascadeType.PERSIST, CascadeType.REFRESH})
+    private List<Cancion> canciones = new ArrayList<>();
+
 }

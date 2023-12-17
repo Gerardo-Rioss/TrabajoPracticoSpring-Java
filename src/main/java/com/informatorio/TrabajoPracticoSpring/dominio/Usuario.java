@@ -26,10 +26,10 @@ public class Usuario extends Auditoria {
     @Column(length = 36,columnDefinition = "varchar(36)",updatable = false,nullable = false)
     private UUID id;
 
-    @Column(name="nombre")
+    @Column(name="nombre", nullable = false)
     private String nombre;
 
-    @Column(name="nombreUsuario")
+    @Column(name="nombreUsuario", nullable = false)
     private String nombreUsuario;
 
     @OneToMany(fetch = FetchType.EAGER,mappedBy = "usuario", cascade = {CascadeType.REMOVE, CascadeType.PERSIST, CascadeType.REFRESH})

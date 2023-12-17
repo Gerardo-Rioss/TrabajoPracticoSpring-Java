@@ -30,7 +30,12 @@ public class ListaReproduccion extends Auditoria {
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Usuario usuario ;
 
-    @OneToMany(fetch = FetchType.EAGER,mappedBy = "listaReproduccion", cascade = {CascadeType.REMOVE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @Column(name="nombre", nullable = false)
+    private String nombre;
+
+    @ManyToMany
+    @JoinTable(name = "ListaReproduccion_cancion", joinColumns = @JoinColumn(name = "listaReproduccion_id"),
+            inverseJoinColumns = @JoinColumn(name = "cancion_id"))
     private List<Cancion> canciones = new ArrayList<>();
 
     @Column(name = "repetir_al_finalizar")

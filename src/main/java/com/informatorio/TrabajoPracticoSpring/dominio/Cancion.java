@@ -18,7 +18,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Cancion extends Auditoria{
+public class Cancion{
 
     @Id
     @GeneratedValue(generator = "UUID")
@@ -27,7 +27,7 @@ public class Cancion extends Auditoria{
     @Column(length = 36,columnDefinition = "varchar(36)",updatable = false,nullable = false)
     private UUID id;
 
-    @Column(name="nombre")
+    @Column(name="nombre", nullable = false)
     private String nombre;
 
     @Column(name = "ranking")
@@ -37,6 +37,12 @@ public class Cancion extends Auditoria{
     @JoinTable(name = "cancion_genero", joinColumns = @JoinColumn(name = "cancion_id"),
             inverseJoinColumns = @JoinColumn(name = "genero_id"))
     private List<Genero> generos = new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(name = "ListaReproduccion_cancion", joinColumns = @JoinColumn(name = "cancion_id"),
+            inverseJoinColumns = @JoinColumn(name = "listaReproduccion_id"))
+    private List<ListaReproduccion> listasReproduccion = new ArrayList<>();
+
     @Column(name = "duracion")
     private Double duracion;
 

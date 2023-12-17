@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 
 
 
-@Table(name = "auditoria")
 @MappedSuperclass
 @AllArgsConstructor
 @NoArgsConstructor
