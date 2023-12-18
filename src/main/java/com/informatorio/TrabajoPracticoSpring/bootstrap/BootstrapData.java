@@ -60,17 +60,17 @@ public class BootstrapData implements CommandLineRunner {
         cancion.setId(1L);
         cancion.setNombre("Tu carcel");
         cancion.setRanking(5);
-        cancion.setGeneros(List.of(generoRepository.findById(1L).get()));
+        //cancion.setGeneros(List.of(generoRepository.findById(1L).get()));
         //cancion.setListasReproduccion(List.of(listaReproduccionRepository.findById(1L).get()));
         cancion.setDuracion(5.40);
-        //cancion.setArtista(List.of(artistaRepository.findById(1L).get()));
+        //cancion.setArtista(artistaRepository.findById(1L).get());
         cancion.setAlbum("Sueños");
         cancionRepository.save(cancion);
     }
     private void cargarListaReproduccion(){
         ListaReproduccion listaReproduccion= new ListaReproduccion();
         listaReproduccion.setId(1L);
-        //listaReproduccion.setUsuario(List.of(usuarioRepository.findById(1L).get()));
+        //listaReproduccion.setUsuario(usuarioRepository.findById(1L).get());
         listaReproduccion.setNombre("Favoritos");
         //listaReproduccion.setCanciones(List.of(cancionRepository.findById(1L).get()));
         listaReproduccion.setRepetirAlFinalizar(Boolean.FALSE);
