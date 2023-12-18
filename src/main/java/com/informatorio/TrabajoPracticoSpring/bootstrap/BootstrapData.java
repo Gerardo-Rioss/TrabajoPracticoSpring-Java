@@ -36,14 +36,12 @@ public class BootstrapData implements CommandLineRunner {
         usuario.setId(1L);
         usuario.setNombre("Gerardo Rios");
         usuario.setNombreUsuario("gerardrioss");
-        //usuario.setListaReproduccion(List.of(listaReproduccionRepository.findById(1L).get()));
         usuarioRepository.save(usuario);
     }
     private void cargarArtista(){
         Artista artista= new Artista();
         artista.setId(1L);
         artista.setNombre("Marcos Antonio Solis");
-        //artista.setCanciones(List.of(cancionRepository.findById(1L).get()));
         artistaRepository.save(artista);
 
     }
@@ -51,7 +49,6 @@ public class BootstrapData implements CommandLineRunner {
         Genero genero = new Genero();
         genero.setId(1L);
         genero.setNombre("Romantico");
-        //genero.setCanciones(List.of(cancionRepository.findById(1L).get()));
         generoRepository.save(genero);
 
     }
@@ -60,19 +57,14 @@ public class BootstrapData implements CommandLineRunner {
         cancion.setId(1L);
         cancion.setNombre("Tu carcel");
         cancion.setRanking(5);
-        //cancion.setGeneros(List.of(generoRepository.findById(1L).get()));
-        //cancion.setListasReproduccion(List.of(listaReproduccionRepository.findById(1L).get()));
         cancion.setDuracion(5.40);
-        //cancion.setArtista(artistaRepository.findById(1L).get());
         cancion.setAlbum("Sueños");
         cancionRepository.save(cancion);
     }
     private void cargarListaReproduccion(){
         ListaReproduccion listaReproduccion= new ListaReproduccion();
         listaReproduccion.setId(1L);
-        //listaReproduccion.setUsuario(usuarioRepository.findById(1L).get());
         listaReproduccion.setNombre("Favoritos");
-        //listaReproduccion.setCanciones(List.of(cancionRepository.findById(1L).get()));
         listaReproduccion.setRepetirAlFinalizar(Boolean.FALSE);
         listaReproduccion.setAleatoria(Boolean.FALSE);
         listaReproduccion.setPublica(Boolean.TRUE);
