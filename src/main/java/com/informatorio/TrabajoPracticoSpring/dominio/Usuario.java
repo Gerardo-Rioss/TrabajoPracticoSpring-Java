@@ -20,11 +20,9 @@ import java.util.UUID;
 public class Usuario extends Auditoria {
 
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    @JdbcTypeCode(SqlTypes.CHAR)
-    @Column(length = 36,columnDefinition = "varchar(36)",updatable = false,nullable = false)
-    private UUID id;
+    @GeneratedValue(generator = "native", strategy = GenerationType.AUTO)
+    @GenericGenerator(name = "native")
+    private Long id;
 
     @Column(name="nombre", nullable = false)
     private String nombre;
@@ -34,5 +32,6 @@ public class Usuario extends Auditoria {
 
     @OneToMany(fetch = FetchType.EAGER,mappedBy = "usuario", cascade = {CascadeType.REMOVE, CascadeType.PERSIST, CascadeType.REFRESH})
     private List<ListaReproduccion> listaReproduccion = new ArrayList<>();
+
 
 }

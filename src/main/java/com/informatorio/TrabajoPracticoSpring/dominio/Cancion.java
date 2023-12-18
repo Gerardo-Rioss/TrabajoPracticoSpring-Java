@@ -21,11 +21,9 @@ import java.util.UUID;
 public class Cancion{
 
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    @JdbcTypeCode(SqlTypes.CHAR)
-    @Column(length = 36,columnDefinition = "varchar(36)",updatable = false,nullable = false)
-    private UUID id;
+    @GeneratedValue(generator = "native", strategy = GenerationType.AUTO)
+    @GenericGenerator(name = "native")
+    private Long id;
 
     @Column(name="nombre", nullable = false)
     private String nombre;
@@ -39,7 +37,7 @@ public class Cancion{
     private List<Genero> generos = new ArrayList<>();
 
     @ManyToMany
-    @JoinTable(name = "ListaReproduccion_cancion", joinColumns = @JoinColumn(name = "cancion_id"),
+    @JoinTable(name = "listaReproduccion_cancion", joinColumns = @JoinColumn(name = "cancion_id"),
             inverseJoinColumns = @JoinColumn(name = "listaReproduccion_id"))
     private List<ListaReproduccion> listasReproduccion = new ArrayList<>();
 

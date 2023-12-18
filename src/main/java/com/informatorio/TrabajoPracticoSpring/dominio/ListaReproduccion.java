@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "usuario")
+@Table(name = "ListaReproduccion")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -21,11 +21,9 @@ import java.util.UUID;
 public class ListaReproduccion extends Auditoria {
 
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    @JdbcTypeCode(SqlTypes.CHAR)
-    @Column(length = 36,columnDefinition = "varchar(36)",updatable = false,nullable = false)
-    private UUID id;
+    @GeneratedValue(generator = "native", strategy = GenerationType.AUTO)
+    @GenericGenerator(name = "native")
+    private Long id;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Usuario usuario ;
@@ -34,7 +32,7 @@ public class ListaReproduccion extends Auditoria {
     private String nombre;
 
     @ManyToMany
-    @JoinTable(name = "ListaReproduccion_cancion", joinColumns = @JoinColumn(name = "listaReproduccion_id"),
+    @JoinTable(name = "listaReproduccion_cancion", joinColumns = @JoinColumn(name = "listaReproduccion_id"),
             inverseJoinColumns = @JoinColumn(name = "cancion_id"))
     private List<Cancion> canciones = new ArrayList<>();
 
