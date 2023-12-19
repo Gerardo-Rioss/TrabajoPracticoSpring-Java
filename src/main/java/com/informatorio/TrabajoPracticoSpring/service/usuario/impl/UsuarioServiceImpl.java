@@ -2,7 +2,7 @@ package com.informatorio.TrabajoPracticoSpring.service.usuario.impl;
 
 import com.informatorio.TrabajoPracticoSpring.dominio.Usuario;
 import com.informatorio.TrabajoPracticoSpring.dto.usuario.UsuarioDto;
-import com.informatorio.TrabajoPracticoSpring.mapper.UsuarioMapper;
+import com.informatorio.TrabajoPracticoSpring.mapper.usuario.UsuarioMapper;
 import com.informatorio.TrabajoPracticoSpring.repository.usuario.UsuarioRepository;
 import com.informatorio.TrabajoPracticoSpring.service.usuario.UsuarioService;
 import jakarta.transaction.Transactional;
