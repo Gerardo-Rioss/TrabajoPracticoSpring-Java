@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
+
 @Service
 @AllArgsConstructor
 public class UsuarioServiceImpl implements UsuarioService {
@@ -24,9 +26,8 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     public void crearUsuario(UsuarioDto usuarioDto) {
         Usuario nuevoUsuario = UsuarioMapper.mapToUsuario(usuarioDto,new Usuario());
-        //nuevoUsuario.setId(2L);
-        nuevoUsuario.setNombre("Raul Rios");
-        nuevoUsuario.setNombreUsuario("Phantera");
+        nuevoUsuario.setId(UUID.randomUUID());
+        nuevoUsuario.setCreadoPor("Anonimo");
         nuevoUsuario.setCreadoEn(LocalDateTime.now());
         usuarioRepository.save(nuevoUsuario);
 

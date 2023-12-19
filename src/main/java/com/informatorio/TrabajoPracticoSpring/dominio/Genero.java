@@ -20,9 +20,11 @@ import java.util.UUID;
 @Setter
 public class Genero {
     @Id
-    @GeneratedValue(generator = "native", strategy = GenerationType.AUTO)
-    @GenericGenerator(name = "native")
-    private Long id;
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @JdbcTypeCode(SqlTypes.CHAR)
+    @Column(length = 36,columnDefinition = "varchar(36)",updatable = false,nullable = false)
+    private UUID id;
 
     @Column(name="nombre", nullable = false)
     private String nombre;

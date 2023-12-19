@@ -33,28 +33,28 @@ public class BootstrapData implements CommandLineRunner {
 
     private void cargarUsuario(){
         Usuario usuario = new Usuario();
-        usuario.setId(1L);
+        usuario.setId(UUID.randomUUID());
         usuario.setNombre("Gerardo Rios");
         usuario.setNombreUsuario("gerardrioss");
         usuarioRepository.save(usuario);
     }
     private void cargarArtista(){
         Artista artista= new Artista();
-        artista.setId(1L);
+        artista.setId(UUID.randomUUID());
         artista.setNombre("Marcos Antonio Solis");
         artistaRepository.save(artista);
 
     }
     private void cargarGenero(){
         Genero genero = new Genero();
-        genero.setId(1L);
+        genero.setId(UUID.randomUUID());
         genero.setNombre("Romantico");
         generoRepository.save(genero);
 
     }
     private void cargarCancion(){
         Cancion cancion = new Cancion();
-        cancion.setId(1L);
+        cancion.setId(UUID.randomUUID());
         cancion.setNombre("Tu carcel");
         cancion.setRanking(5);
         cancion.setDuracion(5.40);
@@ -63,7 +63,7 @@ public class BootstrapData implements CommandLineRunner {
     }
     private void cargarListaReproduccion(){
         ListaReproduccion listaReproduccion= new ListaReproduccion();
-        listaReproduccion.setId(1L);
+        listaReproduccion.setId(UUID.randomUUID());
         listaReproduccion.setNombre("Favoritos");
         listaReproduccion.setRepetirAlFinalizar(Boolean.FALSE);
         listaReproduccion.setAleatoria(Boolean.FALSE);

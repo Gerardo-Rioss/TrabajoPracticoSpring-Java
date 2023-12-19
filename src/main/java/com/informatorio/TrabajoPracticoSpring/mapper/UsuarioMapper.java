@@ -8,7 +8,7 @@ import java.util.List;
 
 public class UsuarioMapper {
     public static Usuario mapToUsuario(UsuarioDto usuarioDto, Usuario usuario){
-        usuario.setId(usuarioDto.getId());
+        //usuario.setId(usuarioDto.getId());
         usuario.setNombre(usuarioDto.getNombre());
         usuario.setNombreUsuario(usuarioDto.getNombreUsuario());
         return usuario;
@@ -24,7 +24,7 @@ public class UsuarioMapper {
     }
 
     public static UsuarioDto mapToUsuarioDto(Usuario usuario, UsuarioDto usuarioDto){
-        usuarioDto.setId(usuario.getId());
+        //usuarioDto.setId(usuario.getId());
         usuarioDto.setNombre(usuario.getNombre());
         usuarioDto.setNombreUsuario(usuario.getNombreUsuario());
         return usuarioDto;
