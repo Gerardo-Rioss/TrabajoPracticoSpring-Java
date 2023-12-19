@@ -15,11 +15,8 @@ import java.util.List;
 @RequestMapping(value = "/api/v1/usuarios", produces = {MediaType.APPLICATION_JSON_VALUE})
 @AllArgsConstructor
 public class UsuarioController {
-    //private  final UsuarioService usuarioService;
+    private  final UsuarioService usuarioService;
 
-//    @GetMapping()
-//    public List<UsuarioDto> obtenerTodosLosUsuarios(
-//      return UsuarioService.obtenerTodosLosUsuarios();
-//    )
+    
 
 }
