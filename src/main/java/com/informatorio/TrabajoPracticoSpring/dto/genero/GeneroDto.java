@@ -8,6 +8,7 @@ import java.util.UUID;
 
 @Data
 public class GeneroDto {
+    private UUID id;
     private String nombre;
     private List<UUID> canciones= new ArrayList<>() ;
 }

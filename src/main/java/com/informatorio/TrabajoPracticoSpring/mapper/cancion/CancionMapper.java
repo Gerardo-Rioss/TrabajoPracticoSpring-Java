@@ -14,7 +14,6 @@ public class CancionMapper {
     private static GeneroService generoService;
     private static ListaReproduccionService listaReproduccionService;
     public static Cancion mapToCancion(CancionDto cancionDto, Cancion cancion){
-        cancion.setId(cancionDto.getId());
         cancion.setNombre(cancionDto.getNombre());
         cancion.setRanking(cancionDto.getRanking());
         if(!cancionDto.getGeneros().isEmpty()){
