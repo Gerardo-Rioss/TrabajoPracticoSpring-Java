@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
 @Repository
-public interface CancionRepository extends JpaRepository<Cancion, Long> {
+public interface CancionRepository extends JpaRepository<Cancion, UUID> {
 }

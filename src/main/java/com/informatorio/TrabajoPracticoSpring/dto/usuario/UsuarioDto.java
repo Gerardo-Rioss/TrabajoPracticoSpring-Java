@@ -8,7 +8,8 @@ import java.util.UUID;
 
 @Data
 public class UsuarioDto {
+    private UUID id;
     private String nombre;
     private String nombreUsuario;
-    private List<Long> listaReproduccion = new ArrayList<>();
+    private List<UUID> listaReproduccion = new ArrayList<>();
 }

@@ -18,10 +18,7 @@ import java.util.UUID;
 public class UsuarioServiceImpl implements UsuarioService {
 
     private final UsuarioRepository usuarioRepository;
-    @Override
-    public List<UsuarioDto> obtenerTodosLosUsuarios() {
-        return null;
-    }
+
     @Transactional
     @Override
     public void crearUsuario(UsuarioDto usuarioDto) {

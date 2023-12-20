@@ -39,7 +39,7 @@ public class ListaReproduccion extends Auditoria {
     private List<Cancion> canciones = new ArrayList<>();
 
     @Column(name = "repetir_al_finalizar")
-    private Boolean repetirAlFinalizar;
+    private Boolean repetir;
 
     @Column(name = "aleatoria")
     private Boolean aleatoria;

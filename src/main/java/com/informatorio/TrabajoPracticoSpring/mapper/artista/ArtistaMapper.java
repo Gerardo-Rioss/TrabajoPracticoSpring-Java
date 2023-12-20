@@ -7,7 +7,7 @@ import com.informatorio.TrabajoPracticoSpring.dto.artista.ArtistaDto;
 import java.util.Collection;
 import java.util.List;
 
-public class artistaMapper {
+public class ArtistaMapper {
     public static Artista mapToArtista(ArtistaDto artistaDto, Artista artista){
         artista.setNombre(artistaDto.getNombre());
         return artista;
