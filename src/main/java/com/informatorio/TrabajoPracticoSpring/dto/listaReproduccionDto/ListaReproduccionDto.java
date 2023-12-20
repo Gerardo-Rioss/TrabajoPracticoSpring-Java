@@ -1,5 +1,6 @@
 package com.informatorio.TrabajoPracticoSpring.dto.listaReproduccionDto;
 
+import com.informatorio.TrabajoPracticoSpring.dominio.Usuario;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -8,10 +9,11 @@ import java.util.UUID;
 
 @Data
 public class ListaReproduccionDto {
-    private Long usuario;
+    private UUID id;
+    private Usuario usuario;
     private String nombre;
     private List<UUID> canciones= new ArrayList<>();
-    private Boolean repetirAlFinalizar;
+    private Boolean repetir;
     private Boolean aleatoria;
     private Boolean publica;
 
