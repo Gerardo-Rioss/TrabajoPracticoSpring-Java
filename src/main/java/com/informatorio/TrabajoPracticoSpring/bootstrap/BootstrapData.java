@@ -5,12 +5,16 @@ import com.informatorio.TrabajoPracticoSpring.repository.cancion.CancionReposito
 import com.informatorio.TrabajoPracticoSpring.repository.genero.GeneroRepository;
 import com.informatorio.TrabajoPracticoSpring.repository.listaReproduccion.ListaReproduccionRepository;
 import com.informatorio.TrabajoPracticoSpring.repository.usuario.UsuarioRepository;
+import com.informatorio.TrabajoPracticoSpring.service.artista.ArtistaService;
+import com.informatorio.TrabajoPracticoSpring.service.cancion.CancionService;
+import com.informatorio.TrabajoPracticoSpring.service.genero.GeneroService;
+import com.informatorio.TrabajoPracticoSpring.service.usuario.UsuarioService;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.UUID;
+
 
 @Component
 @AllArgsConstructor
@@ -20,6 +24,10 @@ public class BootstrapData implements CommandLineRunner {
     private GeneroRepository generoRepository;
     private ListaReproduccionRepository listaReproduccionRepository;
     private UsuarioRepository usuarioRepository;
+    private GeneroService generoService;
+    private ArtistaService artistaService;
+    private UsuarioService usuarioService;
+    private CancionService cancionService;
 
 
     @Override
@@ -31,44 +39,98 @@ public class BootstrapData implements CommandLineRunner {
         cargarListaReproduccion();
     }
 
-    private void cargarUsuario(){
-        Usuario usuario = new Usuario();
-        usuario.setId(UUID.randomUUID());
-        usuario.setNombre("Gerardo Rios");
-        usuario.setNombreUsuario("gerardrioss");
-        usuarioRepository.save(usuario);
-    }
     private void cargarArtista(){
-        Artista artista= new Artista();
-        artista.setId(UUID.randomUUID());
-        artista.setNombre("Marcos Antonio Solis");
-        artistaRepository.save(artista);
+        Artista artista1= new Artista();
+        Artista artista2= new Artista();
+        Artista artista3= new Artista();
+        Artista artista4= new Artista();
+        artista1.setNombre("The Beatles");
+        artista2.setNombre("Michael Jackson");
+        artista3.setNombre("Blondie");
+        artista4.setNombre("The Zutons");
+        artistaRepository.saveAll(List.of(artista1,artista2,artista3,artista4));
 
     }
+
     private void cargarGenero(){
-        Genero genero = new Genero();
-        genero.setId(UUID.randomUUID());
-        genero.setNombre("Romantico");
-        generoRepository.save(genero);
+        Genero genero1 = new Genero();
+        Genero genero2 = new Genero();
+        Genero genero3 = new Genero();
+        genero1.setNombre("Rock");
+        genero2.setNombre("Pop");
+        genero3.setNombre("Rock alternativo");
+        generoRepository.saveAll(List.of(genero1,genero2,genero3));
 
     }
+
+    private void cargarUsuario(){
+        Usuario usuario1 = new Usuario();
+        usuario1.setNombre("Gerardo Rios");
+        usuario1.setNombreUsuario("gerardrioss");
+        Usuario usuario2=new Usuario();
+        usuario2.setNombre("Raul Rios");
+        usuario2.setNombreUsuario("phantera");
+        usuarioRepository.saveAll(List.of(usuario1,usuario2));
+    }
+
+
     private void cargarCancion(){
-        Cancion cancion = new Cancion();
-        cancion.setId(UUID.randomUUID());
-        cancion.setNombre("Tu carcel");
-        cancion.setRanking(5);
-        cancion.setDuracion(5.40);
-        cancion.setAlbum("Sueños");
-        cancionRepository.save(cancion);
+        Cancion cancion1 = new Cancion();
+        Cancion cancion2 = new Cancion();
+        Cancion cancion3 = new Cancion();
+        Cancion cancion4 = new Cancion();
+
+        cancion1.setNombre("Eleanor Rigby");
+        cancion1.setRanking(5);
+        cancion1.setDuracion(5.40);
+        cancion1.setAlbum("Revolver (1966)");
+        cancion1.setGeneros(List.of(generoService.buscarPorNombre("Rock")));
+        cancion1.setArtista((artistaService.buscarPorNombre("The Beatles")));
+
+        cancion2.setNombre("Billie Jean");
+        cancion2.setRanking(4);
+        cancion2.setDuracion(4.40);
+        cancion2.setAlbum("Thriller (1982)");
+        cancion2.setGeneros(List.of(generoService.buscarPorNombre("Pop")));
+        cancion2.setArtista((artistaService.buscarPorNombre("Michael Jackson")));
+
+        cancion3.setNombre("Maria");
+        cancion3.setRanking(4);
+        cancion3.setDuracion(3.15);
+        cancion3.setAlbum("Parallel Lines (1978)");
+        cancion3.setGeneros(List.of(generoService.buscarPorNombre("Pop")));
+        cancion3.setArtista((artistaService.buscarPorNombre("Blondie")));
+
+        cancion4.setNombre("Valerie");
+        cancion4.setRanking(2);
+        cancion4.setDuracion(2.55);
+        cancion4.setAlbum("Tired of Hanging Around (2004)");
+        cancion4.setGeneros(List.of(generoService.buscarPorNombre("Pop")));
+        cancion4.setArtista((artistaService.buscarPorNombre("The Zutons")));
+        cancionRepository.saveAll(List.of(cancion1,cancion2,cancion3,cancion4));
+
+
     }
     private void cargarListaReproduccion(){
-        ListaReproduccion listaReproduccion= new ListaReproduccion();
-        listaReproduccion.setId(UUID.randomUUID());
-        listaReproduccion.setNombre("Favoritos");
-        listaReproduccion.setRepetirAlFinalizar(Boolean.FALSE);
-        listaReproduccion.setAleatoria(Boolean.FALSE);
-        listaReproduccion.setPublica(Boolean.TRUE);
-        listaReproduccionRepository.save(listaReproduccion);
+        ListaReproduccion listaReproduccion1= new ListaReproduccion();
+        ListaReproduccion listaReproduccion2= new ListaReproduccion();
+
+
+        listaReproduccion1.setUsuario(usuarioService.buscarPorNombre("Raul Rios"));
+        listaReproduccion1.setCanciones(List.of(cancionService.buscarPorNombre("Eleanor Rigby"),cancionService.buscarPorNombre("Billie Jean")));
+        listaReproduccion1.setNombre("Lista Reproducción 1");
+        listaReproduccion1.setRepetir(Boolean.FALSE);
+        listaReproduccion1.setAleatoria(Boolean.FALSE);
+        listaReproduccion1.setPublica(Boolean.TRUE);
+        listaReproduccionRepository.save(listaReproduccion1);
+
+        listaReproduccion2.setUsuario(usuarioService.buscarPorNombre("Gerardo Rios"));
+        listaReproduccion2.setCanciones(List.of(cancionService.buscarPorNombre("Maria"),cancionService.buscarPorNombre("Valerie")));
+        listaReproduccion2.setNombre("Lista Reproducción 2");
+        listaReproduccion2.setRepetir(Boolean.FALSE);
+        listaReproduccion2.setAleatoria(Boolean.FALSE);
+        listaReproduccion2.setPublica(Boolean.TRUE);
+        listaReproduccionRepository.save(listaReproduccion2);
     }
 
 }

@@ -1,7 +1,6 @@
 package com.informatorio.TrabajoPracticoSpring.service.genero.impl;
 
 import com.informatorio.TrabajoPracticoSpring.dominio.Genero;
-import com.informatorio.TrabajoPracticoSpring.dominio.ListaReproduccion;
 import com.informatorio.TrabajoPracticoSpring.repository.genero.GeneroRepository;
 import com.informatorio.TrabajoPracticoSpring.service.genero.GeneroService;
 
@@ -12,6 +11,11 @@ import java.util.UUID;
 public class GeneroServiceImpl implements GeneroService {
     private GeneroRepository generoRepository;
 
+
+    @Override
+    public Genero buscarPorNombre(String nombre) {
+        return generoRepository.buscarPorNombre(nombre);
+    }
 
     @Override
     public List<Genero> BuscarPorIds(List<UUID> ids) {

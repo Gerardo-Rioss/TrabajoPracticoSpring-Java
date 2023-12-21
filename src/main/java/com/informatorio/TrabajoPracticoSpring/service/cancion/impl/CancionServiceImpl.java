@@ -10,6 +10,13 @@ import java.util.UUID;
 
 public class CancionServiceImpl implements CancionService {
     private static CancionRepository cancionRepository;
+
+
+    @Override
+    public Cancion buscarPorNombre(String nombre) {
+        return cancionRepository.buscarPorNombre(nombre);
+    }
+
     @Override
     public List<Cancion> BuscarPorIds(List<UUID> ids) {
 

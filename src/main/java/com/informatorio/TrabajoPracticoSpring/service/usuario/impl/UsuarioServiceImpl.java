@@ -29,4 +29,11 @@ public class UsuarioServiceImpl implements UsuarioService {
         usuarioRepository.save(nuevoUsuario);
 
     }
+
+    @Override
+    public Usuario buscarPorNombre(String nombre) {
+        for (Usuario user: usuarioRepository.findAll())
+            if (user.getNombre()==nombre) return user;
+        return null;
+    }
 }
