@@ -10,7 +10,7 @@ import java.util.UUID;
 @Data
 public class CancionDto {
     private UUID id;
-    private String nombre;
+    private String nombreCancion;
     private Integer ranking;
     private List<UUID>generos= new ArrayList<>();
     private List<UUID>listaReproduccion = new ArrayList<>();

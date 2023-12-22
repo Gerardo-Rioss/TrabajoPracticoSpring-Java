@@ -11,7 +11,7 @@ import java.util.UUID;
 public class ListaReproduccionDto {
     private UUID id;
     private Usuario usuario;
-    private String nombre;
+    private String nombreLista;
     private List<UUID> canciones= new ArrayList<>();
     private Boolean repetir;
     private Boolean aleatoria;

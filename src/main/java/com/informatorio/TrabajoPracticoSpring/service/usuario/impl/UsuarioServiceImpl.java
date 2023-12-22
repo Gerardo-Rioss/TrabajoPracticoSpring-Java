@@ -33,7 +33,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     public Usuario buscarPorNombre(String nombre) {
         for (Usuario user: usuarioRepository.findAll())
-            if (user.getNombre()==nombre) return user;
+            if (user.getNombreUsuario().equals(nombre)) return user;
         return null;
     }
 }

@@ -44,10 +44,10 @@ public class BootstrapData implements CommandLineRunner {
         Artista artista2= new Artista();
         Artista artista3= new Artista();
         Artista artista4= new Artista();
-        artista1.setNombre("The Beatles");
-        artista2.setNombre("Michael Jackson");
-        artista3.setNombre("Blondie");
-        artista4.setNombre("The Zutons");
+        artista1.setNombreArtista("The Beatles");
+        artista2.setNombreArtista("Michael Jackson");
+        artista3.setNombreArtista("Blondie");
+        artista4.setNombreArtista("The Zutons");
         artistaRepository.saveAll(List.of(artista1,artista2,artista3,artista4));
 
     }
@@ -56,20 +56,20 @@ public class BootstrapData implements CommandLineRunner {
         Genero genero1 = new Genero();
         Genero genero2 = new Genero();
         Genero genero3 = new Genero();
-        genero1.setNombre("Rock");
-        genero2.setNombre("Pop");
-        genero3.setNombre("Rock alternativo");
+        genero1.setNombreGenero("Rock");
+        genero2.setNombreGenero("Pop");
+        genero3.setNombreGenero("Rock alternativo");
         generoRepository.saveAll(List.of(genero1,genero2,genero3));
 
     }
 
     private void cargarUsuario(){
         Usuario usuario1 = new Usuario();
-        usuario1.setNombre("Gerardo Rios");
-        usuario1.setNombreUsuario("gerardrioss");
+        usuario1.setNombreUsuario("Gerardo Rios");
+        usuario1.setUsuario("gerardrioss");
         Usuario usuario2=new Usuario();
-        usuario2.setNombre("Raul Rios");
-        usuario2.setNombreUsuario("phantera");
+        usuario2.setNombreUsuario("Raul Rios");
+        usuario2.setUsuario("phantera");
         usuarioRepository.saveAll(List.of(usuario1,usuario2));
     }
 
@@ -80,28 +80,28 @@ public class BootstrapData implements CommandLineRunner {
         Cancion cancion3 = new Cancion();
         Cancion cancion4 = new Cancion();
 
-        cancion1.setNombre("Eleanor Rigby");
+        cancion1.setNombreCancion("Eleanor Rigby");
         cancion1.setRanking(5);
         cancion1.setDuracion(5.40);
         cancion1.setAlbum("Revolver (1966)");
         cancion1.setGeneros(List.of(generoService.buscarPorNombre("Rock")));
         cancion1.setArtista((artistaService.buscarPorNombre("The Beatles")));
 
-        cancion2.setNombre("Billie Jean");
+        cancion2.setNombreCancion("Billie Jean");
         cancion2.setRanking(4);
         cancion2.setDuracion(4.40);
         cancion2.setAlbum("Thriller (1982)");
         cancion2.setGeneros(List.of(generoService.buscarPorNombre("Pop")));
         cancion2.setArtista((artistaService.buscarPorNombre("Michael Jackson")));
 
-        cancion3.setNombre("Maria");
+        cancion3.setNombreCancion("Maria");
         cancion3.setRanking(4);
         cancion3.setDuracion(3.15);
         cancion3.setAlbum("Parallel Lines (1978)");
         cancion3.setGeneros(List.of(generoService.buscarPorNombre("Pop")));
         cancion3.setArtista((artistaService.buscarPorNombre("Blondie")));
 
-        cancion4.setNombre("Valerie");
+        cancion4.setNombreCancion("Valerie");
         cancion4.setRanking(2);
         cancion4.setDuracion(2.55);
         cancion4.setAlbum("Tired of Hanging Around (2004)");
@@ -118,7 +118,7 @@ public class BootstrapData implements CommandLineRunner {
 
         listaReproduccion1.setUsuario(usuarioService.buscarPorNombre("Raul Rios"));
         listaReproduccion1.setCanciones(List.of(cancionService.buscarPorNombre("Eleanor Rigby"),cancionService.buscarPorNombre("Billie Jean")));
-        listaReproduccion1.setNombre("Lista Reproducción 1");
+        listaReproduccion1.setNombreLista("Lista Reproducción 1");
         listaReproduccion1.setRepetir(Boolean.FALSE);
         listaReproduccion1.setAleatoria(Boolean.FALSE);
         listaReproduccion1.setPublica(Boolean.TRUE);
@@ -126,7 +126,7 @@ public class BootstrapData implements CommandLineRunner {
 
         listaReproduccion2.setUsuario(usuarioService.buscarPorNombre("Gerardo Rios"));
         listaReproduccion2.setCanciones(List.of(cancionService.buscarPorNombre("Maria"),cancionService.buscarPorNombre("Valerie")));
-        listaReproduccion2.setNombre("Lista Reproducción 2");
+        listaReproduccion2.setNombreLista("Lista Reproducción 2");
         listaReproduccion2.setRepetir(Boolean.FALSE);
         listaReproduccion2.setAleatoria(Boolean.FALSE);
         listaReproduccion2.setPublica(Boolean.TRUE);

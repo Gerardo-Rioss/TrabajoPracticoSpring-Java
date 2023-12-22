@@ -11,7 +11,7 @@ import java.util.List;
 public class UsuarioMapper {
     private static ListaReproduccionService listaReproduccionService;
     public static Usuario mapToUsuario(UsuarioDto usuarioDto, Usuario usuario){
-        usuario.setNombre(usuarioDto.getNombre());
+        usuario.setNombreUsuario(usuarioDto.getNombreUsuario());
         usuario.setNombreUsuario(usuarioDto.getNombreUsuario());
         if (!usuarioDto.getListaReproduccion().isEmpty()){
             usuario.setListaReproduccion(listaReproduccionService.BuscarPorIds(usuarioDto.getListaReproduccion()));
@@ -29,7 +29,7 @@ public class UsuarioMapper {
     }
     public static UsuarioDto mapToUsuarioDto(Usuario usuario, UsuarioDto usuarioDto){
         usuarioDto.setId(usuario.getId());
-        usuarioDto.setNombre(usuario.getNombre());
+        usuarioDto.setNombreUsuario(usuario.getNombreUsuario());
         usuarioDto.setNombreUsuario(usuario.getNombreUsuario());
         for (ListaReproduccion lista: usuario.getListaReproduccion()){
             usuarioDto.getListaReproduccion().add(lista.getId());

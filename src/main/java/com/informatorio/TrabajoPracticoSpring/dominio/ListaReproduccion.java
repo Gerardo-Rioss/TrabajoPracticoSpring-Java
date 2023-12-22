@@ -21,17 +21,17 @@ import java.util.UUID;
 public class ListaReproduccion extends Auditoria {
 
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @GenericGenerator(name = "UUID")
     @JdbcTypeCode(SqlTypes.CHAR)
     @Column(length = 36,columnDefinition = "varchar(36)",updatable = false,nullable = false)
     private UUID id;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Usuario usuario ;
 
-    @Column(name="nombre", nullable = false)
-    private String nombre;
+    @Column(name="nombreLista", nullable = false)
+    private String nombreLista;
 
     @ManyToMany
     @JoinTable(name = "listaReproduccion_cancion", joinColumns = @JoinColumn(name = "listaReproduccion_id"),

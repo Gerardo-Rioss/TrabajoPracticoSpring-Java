@@ -15,7 +15,7 @@ public class ListaReproduccionMapper {
 
     public static ListaReproduccion mapToListaReproduccion(ListaReproduccionDto listaReproduccionDto, ListaReproduccion listaReproduccion){
         listaReproduccion.setUsuario(listaReproduccionDto.getUsuario());
-        listaReproduccion.setNombre(listaReproduccionDto.getNombre());
+        listaReproduccion.setNombreLista(listaReproduccionDto.getNombreLista());
         if (!listaReproduccionDto.getCanciones().isEmpty()){
             listaReproduccion.setCanciones(cancionService.BuscarPorIds(listaReproduccionDto.getCanciones()));
         }
@@ -36,7 +36,7 @@ public class ListaReproduccionMapper {
     public static ListaReproduccionDto mapToListaReproduccionDto(ListaReproduccion listaReproduccion, ListaReproduccionDto listaReproduccionDto){
         listaReproduccionDto.setId(listaReproduccion.getId());
         listaReproduccionDto.setUsuario(listaReproduccion.getUsuario());
-        listaReproduccionDto.setNombre(listaReproduccion.getNombre());
+        listaReproduccionDto.setNombreLista(listaReproduccion.getNombreLista());
         for (Cancion cancion: listaReproduccion.getCanciones()){
             listaReproduccionDto.getCanciones().add(listaReproduccion.getId());
         }

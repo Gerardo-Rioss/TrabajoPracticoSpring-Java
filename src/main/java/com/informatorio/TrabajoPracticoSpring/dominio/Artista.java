@@ -20,16 +20,16 @@ import java.util.UUID;
 @Setter
 public class Artista{
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @GenericGenerator(name = "UUID")
     @JdbcTypeCode(SqlTypes.CHAR)
     @Column(length = 36,columnDefinition = "varchar(36)",updatable = false,nullable = false)
     private UUID id;
 
-    @Column(name="nombre", nullable = false)
-    private String nombre;
+    @Column(name="nombreArtista", nullable = false)
+    private String nombreArtista;
 
-    @OneToMany(fetch = FetchType.EAGER,mappedBy = "artista", cascade = {CascadeType.REMOVE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @OneToMany(fetch = FetchType.EAGER,mappedBy = "artista", cascade = CascadeType.MERGE)
     private List<Cancion> canciones = new ArrayList<>();
 
 }

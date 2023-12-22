@@ -14,7 +14,7 @@ public class CancionMapper {
     private static GeneroService generoService;
     private static ListaReproduccionService listaReproduccionService;
     public static Cancion mapToCancion(CancionDto cancionDto, Cancion cancion){
-        cancion.setNombre(cancionDto.getNombre());
+        cancion.setNombreCancion(cancionDto.getNombreCancion());
         cancion.setRanking(cancionDto.getRanking());
         if(!cancionDto.getGeneros().isEmpty()){
             cancion.setGeneros(generoService.BuscarPorIds(cancionDto.getGeneros()));
@@ -28,7 +28,7 @@ public class CancionMapper {
         return cancion;
     }
 
-    public List<Cancion> mapToCanciones(Collection<CancionDto> cancionDtos, Collection<Cancion> canciones){
+    public static List<Cancion> mapToCanciones(Collection<CancionDto> cancionDtos, Collection<Cancion> canciones){
         for (CancionDto cancionDto: cancionDtos){
             canciones.add(
                     mapToCancion(cancionDto,new Cancion())
@@ -39,7 +39,7 @@ public class CancionMapper {
 
     public static CancionDto mapToCancionDto(Cancion cancion, CancionDto cancionDto ){
         cancionDto.setId(cancion.getId());
-        cancionDto.setNombre(cancion.getNombre());
+        cancionDto.setNombreCancion(cancion.getNombreCancion());
         cancionDto.setRanking(cancion.getRanking());
         for (Genero genero: cancion.getGeneros()){
             cancionDto.getGeneros().add(genero.getId());
@@ -52,7 +52,7 @@ public class CancionMapper {
         cancionDto.setAlbum(cancion.getAlbum());
         return cancionDto;
     }
-    public List<CancionDto> mapToCancionDto(Collection<Cancion> canciones, Collection<CancionDto> cancionDtos){
+    public static List<CancionDto> mapToCancionDtos(Collection<Cancion> canciones, Collection<CancionDto> cancionDtos){
         for (Cancion cancion: canciones){
             cancionDtos.add(
                     mapToCancionDto(cancion,new CancionDto())

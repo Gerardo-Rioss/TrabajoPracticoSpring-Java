@@ -12,7 +12,7 @@ import java.util.List;
 public class ArtistaMapper {
     private static CancionService cancionService;
     public static Artista mapToArtista(ArtistaDto artistaDto, Artista artista){
-        artista.setNombre(artistaDto.getNombre());
+        artista.setNombreArtista(artistaDto.getNombreArtista());
         if (!artistaDto.getCanciones().isEmpty()){
             artista.setCanciones(cancionService.BuscarPorIds(artistaDto.getCanciones()));
         }
@@ -29,7 +29,7 @@ public class ArtistaMapper {
     }
     public static ArtistaDto mapToArtistaDto( Artista artista, ArtistaDto artistaDto){
         artistaDto.setId(artista.getId());
-        artistaDto.setNombre(artista.getNombre());
+        artistaDto.setNombreArtista(artista.getNombreArtista());
         for (Cancion cancion: artista.getCanciones()){
             artistaDto.getCanciones().add(artista.getId());
         }

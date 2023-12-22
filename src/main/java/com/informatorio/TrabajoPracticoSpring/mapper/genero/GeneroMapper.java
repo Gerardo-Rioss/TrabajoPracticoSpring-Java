@@ -13,7 +13,7 @@ public class GeneroMapper {
 
 
     public static Genero mapToGenero(GeneroDto generoDto, Genero genero) {
-        genero.setNombre(generoDto.getNombre());
+        genero.setNombreGenero(generoDto.getNombreGenero());
         if (!generoDto.getCanciones().isEmpty()) {
             genero.setCanciones(cancionService.BuscarPorIds(generoDto.getCanciones()));
         }
@@ -31,7 +31,7 @@ public class GeneroMapper {
     }
     public static GeneroDto mapToGeneroDto(Genero genero, GeneroDto generoDto){
         generoDto.setId(genero.getId());
-        generoDto.setNombre(genero.getNombre());
+        generoDto.setNombreGenero(genero.getNombreGenero());
         for (Cancion cancion: genero.getCanciones()){
             generoDto.getCanciones().add(cancion.getId());
         }

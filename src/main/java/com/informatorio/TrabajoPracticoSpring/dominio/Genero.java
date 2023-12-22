@@ -20,16 +20,16 @@ import java.util.UUID;
 @Setter
 public class Genero {
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @GenericGenerator(name = "UUID")
     @JdbcTypeCode(SqlTypes.CHAR)
     @Column(length = 36,columnDefinition = "varchar(36)",updatable = false,nullable = false)
     private UUID id;
 
-    @Column(name="nombre", nullable = false)
-    private String nombre;
+    @Column(name="nombreGenero", nullable = false)
+    private String nombreGenero;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "cancion_genero", joinColumns = @JoinColumn(name = "genero_id"),
             inverseJoinColumns = @JoinColumn(name = "cancion_id"))
     private List<Cancion> canciones = new ArrayList<>();

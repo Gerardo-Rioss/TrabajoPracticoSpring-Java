@@ -9,7 +9,7 @@ import java.util.UUID;
 @Data
 public class UsuarioDto {
     private UUID id;
-    private String nombre;
     private String nombreUsuario;
+    private String Usuario;
     private List<UUID> listaReproduccion = new ArrayList<>();
 }

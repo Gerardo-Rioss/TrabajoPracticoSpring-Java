@@ -21,24 +21,24 @@ import java.util.UUID;
 public class Cancion{
 
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @GenericGenerator(name = "UUID")
     @JdbcTypeCode(SqlTypes.CHAR)
     @Column(length = 36,columnDefinition = "varchar(36)",updatable = false,nullable = false)
     private UUID id;
 
-    @Column(name="nombre", nullable = false)
-    private String nombre;
+    @Column(name="nombreCancion", nullable = false)
+    private String nombreCancion;
 
     @Column(name = "ranking")
     private Integer ranking;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinTable(name = "cancion_genero", joinColumns = @JoinColumn(name = "cancion_id"),
             inverseJoinColumns = @JoinColumn(name = "genero_id"))
     private List<Genero> generos = new ArrayList<>();
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinTable(name = "listaReproduccion_cancion", joinColumns = @JoinColumn(name = "cancion_id"),
             inverseJoinColumns = @JoinColumn(name = "listaReproduccion_id"))
     private List<ListaReproduccion> listasReproduccion = new ArrayList<>();
@@ -46,7 +46,7 @@ public class Cancion{
     @Column(name = "duracion")
     private Double duracion;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Artista artista ;
 
     @Column(name="album")
