@@ -1,6 +1,8 @@
 package com.informatorio.TrabajoPracticoSpring.service.cancion;
 
 import com.informatorio.TrabajoPracticoSpring.dominio.Cancion;
+import com.informatorio.TrabajoPracticoSpring.dto.cancion.CancionDto;
+import com.informatorio.TrabajoPracticoSpring.mapper.cancion.CancionMapper;
 import com.informatorio.TrabajoPracticoSpring.repository.cancion.CancionRepository;
 import com.informatorio.TrabajoPracticoSpring.service.artista.ArtistaService;
 import com.informatorio.TrabajoPracticoSpring.service.cancion.CancionService;
@@ -77,7 +79,10 @@ public class CancionServiceImpl implements CancionService {
                 .collect(Collectors.toList());
     }
 
-
+    @Override
+    public List<CancionDto> obtenerTodasLasCanciones() {
+        return CancionMapper.mapToCancionDtos(cancionRepository.findAll(),new ArrayList<>());
+    }
 
 
 }

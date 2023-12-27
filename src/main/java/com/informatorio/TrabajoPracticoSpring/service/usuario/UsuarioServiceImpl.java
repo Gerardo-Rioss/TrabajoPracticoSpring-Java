@@ -23,7 +23,6 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     public void crearUsuario(UsuarioDto usuarioDto) {
         Usuario nuevoUsuario = UsuarioMapper.mapToUsuario(usuarioDto,new Usuario());
-        //nuevoUsuario.setId(UUID.randomUUID());
         nuevoUsuario.setCreadoPor("Anonimo");
         nuevoUsuario.setCreadoEn(LocalDateTime.now());
         usuarioRepository.save(nuevoUsuario);

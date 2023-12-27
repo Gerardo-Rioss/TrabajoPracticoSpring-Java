@@ -18,6 +18,7 @@ public interface CancionService {
     List<Cancion> busquedaAvanzada(Map<String, String> criterios);
 
     List<Cancion> busquedaAleatoria(String criterio);
+    List<CancionDto>obtenerTodasLasCanciones();
 
 
 }
