@@ -9,10 +9,10 @@ import java.util.UUID;
 
 @Data
 public class ListaReproduccionDto {
-    private UUID id;
+    private Long id;
     private Usuario usuario;
     private String nombreLista;
-    private List<UUID> canciones= new ArrayList<>();
+    private List<Long> canciones= new ArrayList<>();
     private Boolean repetir;
     private Boolean aleatoria;
     private Boolean publica;

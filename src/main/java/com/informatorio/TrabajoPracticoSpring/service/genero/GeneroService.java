@@ -7,5 +7,5 @@ import java.util.UUID;
 
 public interface GeneroService {
     Genero buscarPorNombre(String nombre);
-    List<Genero> BuscarPorIds(List<UUID>ids);
+    List<Genero> BuscarPorIds(List<Long>ids);
 }

@@ -1,4 +1,4 @@
-package com.informatorio.TrabajoPracticoSpring.service.genero.impl;
+package com.informatorio.TrabajoPracticoSpring.service.genero;
 
 import com.informatorio.TrabajoPracticoSpring.dominio.Genero;
 import com.informatorio.TrabajoPracticoSpring.dominio.Usuario;
@@ -24,9 +24,9 @@ public class GeneroServiceImpl implements GeneroService {
     }
 
     @Override
-    public List<Genero> BuscarPorIds(List<UUID> ids) {
+    public List<Genero> BuscarPorIds(List<Long> ids) {
         List<Genero> generos = new ArrayList<>() ;
-        for (UUID id : ids){
+        for (Long id : ids){
             generos.add(generoRepository.findById(id).orElseThrow());
         }
         return generos;

@@ -7,7 +7,7 @@ import java.util.UUID;
 
 @Data
 public class ArtistaDto {
-    private UUID id;
+    private Long id;
     private String nombreArtista;
-    private List<UUID> canciones;
+    private List<Long> canciones;
 }

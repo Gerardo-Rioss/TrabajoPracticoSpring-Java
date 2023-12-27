@@ -1,4 +1,4 @@
-package com.informatorio.TrabajoPracticoSpring.service.listaReproduccion.impl;
+package com.informatorio.TrabajoPracticoSpring.service.listaReproduccion;
 
 import com.informatorio.TrabajoPracticoSpring.dominio.ListaReproduccion;
 import com.informatorio.TrabajoPracticoSpring.repository.listaReproduccion.ListaReproduccionRepository;
@@ -15,9 +15,9 @@ public class ListaReproduccionServiceImpl implements ListaReproduccionService {
     private ListaReproduccionRepository listaReproduccionRepository;
 
     @Override
-    public List<ListaReproduccion> BuscarPorIds(List<UUID> ids) {
+    public List<ListaReproduccion> BuscarPorIds(List<Long> ids) {
         List<ListaReproduccion> listaReproducciones = new ArrayList<>() ;
-        for (UUID id : ids){
+        for (Long id : ids){
             listaReproducciones.add(listaReproduccionRepository.findById(id).orElseThrow());
         }
         return listaReproducciones;

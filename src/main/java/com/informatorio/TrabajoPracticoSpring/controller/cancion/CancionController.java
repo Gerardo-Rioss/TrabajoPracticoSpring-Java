@@ -14,18 +14,15 @@ import java.util.UUID;
 
 
 @RestController
-@RequestMapping(value = "/api/v1/canciones/busqueda", produces = {MediaType.APPLICATION_JSON_VALUE})
+@RequestMapping(value = "/api/v1/canciones", produces = {MediaType.APPLICATION_JSON_VALUE})
 @AllArgsConstructor
 public class CancionController {
     private CancionService cancionService;
 
     @GetMapping()
     public List<CancionDto> busquedaAleatoria(
-            @RequestParam(name = "nombreCancion",required = false) String nombre,
-            @RequestParam(name = "nombreGenero",required = false) String genero,
-            @RequestParam(name = "nombreArtista",required = false) String artista,
-            @RequestParam(name = "album",required = false) String album
+            @RequestParam(name = "criterio",required = false) String criterio
     ){
-        return cancionService.busquedaAleatoria(nombre,genero,artista,album);
+        return null;
     }
 }

@@ -1,4 +1,4 @@
-package com.informatorio.TrabajoPracticoSpring.service.artista.impl;
+package com.informatorio.TrabajoPracticoSpring.service.artista;
 
 
 import com.informatorio.TrabajoPracticoSpring.dominio.Artista;

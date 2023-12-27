@@ -19,12 +19,16 @@ import java.util.UUID;
 @Setter
 public class Usuario extends Auditoria {
 
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.UUID)
+//    @GenericGenerator(name = "UUID")
+//    @JdbcTypeCode(SqlTypes.CHAR)
+//    @Column(length = 36,columnDefinition = "varchar(36)",updatable = false,nullable = false)
+//    private UUID id;
+
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    @GenericGenerator(name = "UUID")
-    @JdbcTypeCode(SqlTypes.CHAR)
-    @Column(length = 36,columnDefinition = "varchar(36)",updatable = false,nullable = false)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private  Long id;
 
     @Column(name="nombreUsuario", nullable = false)
     private String nombreUsuario;

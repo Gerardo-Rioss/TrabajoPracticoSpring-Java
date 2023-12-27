@@ -6,5 +6,5 @@ import java.util.List;
 import java.util.UUID;
 
 public interface ListaReproduccionService {
-    List<ListaReproduccion>BuscarPorIds(List<UUID>ids);
+    List<ListaReproduccion>BuscarPorIds(List<Long>ids);
 }

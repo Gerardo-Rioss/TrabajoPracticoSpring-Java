@@ -19,12 +19,15 @@ import java.util.UUID;
 @Getter
 @Setter
 public class Artista{
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.UUID)
+//    @GenericGenerator(name = "UUID")
+//    @JdbcTypeCode(SqlTypes.CHAR)
+//    @Column(length = 36,columnDefinition = "varchar(36)",updatable = false,nullable = false)
+//    private UUID id;
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    @GenericGenerator(name = "UUID")
-    @JdbcTypeCode(SqlTypes.CHAR)
-    @Column(length = 36,columnDefinition = "varchar(36)",updatable = false,nullable = false)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private  Long id;
 
     @Column(name="nombreArtista", nullable = false)
     private String nombreArtista;

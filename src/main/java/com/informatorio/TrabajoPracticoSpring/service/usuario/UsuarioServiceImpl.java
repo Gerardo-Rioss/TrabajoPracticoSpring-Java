@@ -1,4 +1,4 @@
-package com.informatorio.TrabajoPracticoSpring.service.usuario.impl;
+package com.informatorio.TrabajoPracticoSpring.service.usuario;
 
 import com.informatorio.TrabajoPracticoSpring.dominio.Usuario;
 import com.informatorio.TrabajoPracticoSpring.dto.usuario.UsuarioDto;
@@ -23,7 +23,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     public void crearUsuario(UsuarioDto usuarioDto) {
         Usuario nuevoUsuario = UsuarioMapper.mapToUsuario(usuarioDto,new Usuario());
-        nuevoUsuario.setId(UUID.randomUUID());
+        //nuevoUsuario.setId(UUID.randomUUID());
         nuevoUsuario.setCreadoPor("Anonimo");
         nuevoUsuario.setCreadoEn(LocalDateTime.now());
         usuarioRepository.save(nuevoUsuario);
