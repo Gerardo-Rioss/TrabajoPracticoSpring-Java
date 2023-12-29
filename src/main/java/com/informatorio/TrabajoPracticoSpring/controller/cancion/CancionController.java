@@ -29,9 +29,7 @@ public class CancionController {
 //    }
 
     @GetMapping()
-    @ResponseBody
-    public List<CancionDto> ListaTodasLasCanciones(){
-        return cancionService.obtenerTodasLasCanciones();
-        //return CancionMapper.mapToCancionDtos(cancionService.obtenerTodasLasCanciones(),new ArrayList<>());
+    public List<CancionDto> listarCanciones(){
+        return cancionService.listarCanciones();
     }
 }

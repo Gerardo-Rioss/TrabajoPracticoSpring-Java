@@ -42,45 +42,9 @@ public class CancionServiceImpl implements CancionService {
 
     }
 
-    @Override
-    public List<Cancion> busquedaAvanzada(Map<String, String> criterios) {
-        List<Cancion> canciones = cancionRepository.findAll();
-
-        for (String criterio : criterios.keySet()) {
-            String valor = criterios.get(criterio);
-
-            if (criterio.equals("genero")) {
-                canciones = canciones.stream()
-                        .filter(cancion -> cancion.getGeneros().contains(valor))
-                        .collect(Collectors.toList());
-            } else if (criterio.equals("artista")) {
-                canciones = canciones.stream()
-                        .filter(cancion -> cancion.getArtista().getNombreArtista().equals(valor))
-                        .collect(Collectors.toList());
-            } else if (criterio.equals("album")) {
-                canciones = canciones.stream()
-                        .filter(cancion -> cancion.getAlbum().equals(valor))
-                        .collect(Collectors.toList());
-            } else if (criterio.equals("titulo")) {
-                canciones = canciones.stream()
-                        .filter(cancion -> cancion.getNombreCancion().contains(valor))
-                        .collect(Collectors.toList());
-            }
-        }
-
-        return canciones;
-    }
-
-    public List<Cancion> busquedaAleatoria(String criterio) {
-        List<Cancion> canciones = busquedaAvanzada(Map.of(criterio, ""));
-
-        return canciones.stream()
-                .limit(5)
-                .collect(Collectors.toList());
-    }
 
     @Override
-    public List<CancionDto> obtenerTodasLasCanciones() {
+    public List<CancionDto> listarCanciones() {
         return CancionMapper.mapToCancionDtos(cancionRepository.findAll(),new ArrayList<>());
     }
 

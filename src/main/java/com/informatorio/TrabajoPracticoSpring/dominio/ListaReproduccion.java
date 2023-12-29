@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "ListaReproduccion")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -37,8 +36,8 @@ public class ListaReproduccion extends Auditoria {
     @Column(name="nombreLista", nullable = false)
     private String nombreLista;
 
-    @ManyToMany
-    @JoinTable(name = "listaReproduccion_cancion", joinColumns = @JoinColumn(name = "listaReproduccion_id"),
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinTable(name = "cancion_listaReproduccion", joinColumns = @JoinColumn(name = "listaReproduccion_id"),
             inverseJoinColumns = @JoinColumn(name = "cancion_id"))
     private List<Cancion> canciones = new ArrayList<>();
 

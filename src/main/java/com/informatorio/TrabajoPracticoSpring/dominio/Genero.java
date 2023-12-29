@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "genero")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -30,10 +29,10 @@ public class Genero {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long id;
 
-    @Column(name="nombreGenero", nullable = false)
+    @Column(name="nombreGenero", nullable = false, unique = true)
     private String nombreGenero;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinTable(name = "cancion_genero", joinColumns = @JoinColumn(name = "genero_id"),
             inverseJoinColumns = @JoinColumn(name = "cancion_id"))
     private List<Cancion> canciones = new ArrayList<>();

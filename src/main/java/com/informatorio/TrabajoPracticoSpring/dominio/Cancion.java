@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "cancion")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -43,12 +42,12 @@ public class Cancion{
     private List<Genero> generos = new ArrayList<>();
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @JoinTable(name = "listaReproduccion_cancion", joinColumns = @JoinColumn(name = "cancion_id"),
+    @JoinTable(name = "cancion_listaReproduccion", joinColumns = @JoinColumn(name = "cancion_id"),
             inverseJoinColumns = @JoinColumn(name = "listaReproduccion_id"))
     private List<ListaReproduccion> listasReproduccion = new ArrayList<>();
 
     @Column(name = "duracion")
-    private Double duracion;
+    private Integer duracion;
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Artista artista ;

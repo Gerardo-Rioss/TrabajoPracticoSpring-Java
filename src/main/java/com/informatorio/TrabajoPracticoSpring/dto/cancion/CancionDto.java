@@ -9,12 +9,12 @@ import java.util.UUID;
 
 @Data
 public class CancionDto {
-    private Long id;
+    //private Long id;
     private String nombreCancion;
     private Integer ranking;
     private List<Long>generos= new ArrayList<>();
     private List<Long>listaReproduccion = new ArrayList<>();
-    private Double duracion;
+    private Integer duracion;
     private Artista artista ;
     private String album;
 }

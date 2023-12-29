@@ -82,28 +82,28 @@ public class BootstrapData implements CommandLineRunner {
 
         cancion1.setNombreCancion("Eleanor Rigby");
         cancion1.setRanking(5);
-        cancion1.setDuracion(5.40);
+        cancion1.setDuracion(540);
         cancion1.setAlbum("Revolver (1966)");
         cancion1.setGeneros(List.of(generoService.buscarPorNombre("Rock")));
         cancion1.setArtista((artistaService.buscarPorNombre("The Beatles")));
 
         cancion2.setNombreCancion("Billie Jean");
         cancion2.setRanking(4);
-        cancion2.setDuracion(4.40);
+        cancion2.setDuracion(440);
         cancion2.setAlbum("Thriller (1982)");
         cancion2.setGeneros(List.of(generoService.buscarPorNombre("Pop")));
         cancion2.setArtista((artistaService.buscarPorNombre("Michael Jackson")));
 
         cancion3.setNombreCancion("Maria");
         cancion3.setRanking(4);
-        cancion3.setDuracion(3.15);
+        cancion3.setDuracion(315);
         cancion3.setAlbum("Parallel Lines (1978)");
         cancion3.setGeneros(List.of(generoService.buscarPorNombre("Pop")));
         cancion3.setArtista((artistaService.buscarPorNombre("Blondie")));
 
         cancion4.setNombreCancion("Valerie");
         cancion4.setRanking(2);
-        cancion4.setDuracion(2.55);
+        cancion4.setDuracion(255);
         cancion4.setAlbum("Tired of Hanging Around (2004)");
         cancion4.setGeneros(List.of(generoService.buscarPorNombre("Pop")));
         cancion4.setArtista((artistaService.buscarPorNombre("The Zutons")));

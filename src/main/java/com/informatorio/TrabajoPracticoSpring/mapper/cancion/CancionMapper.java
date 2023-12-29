@@ -38,7 +38,7 @@ public class CancionMapper {
     }
 
     public static CancionDto mapToCancionDto(Cancion cancion, CancionDto cancionDto ){
-        cancionDto.setId(cancion.getId());
+        //cancionDto.setId(cancion.getId());
         cancionDto.setNombreCancion(cancion.getNombreCancion());
         cancionDto.setRanking(cancion.getRanking());
         for (Genero genero: cancion.getGeneros()){

@@ -1,4 +1,5 @@
 package com.informatorio.TrabajoPracticoSpring.dominio;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -12,7 +13,6 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "Usuarios")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -37,7 +37,6 @@ public class Usuario extends Auditoria {
     private String usuario;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @JoinColumn(name="usuario")
     private List<ListaReproduccion> listaReproduccion = new ArrayList<>();
 
 
